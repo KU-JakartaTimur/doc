@@ -2,46 +2,29 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Pengenalan SIKU
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Selamat datang di Dokumentasi **SIKU (Sistem Informasi Sekolah Terpadu)**.
 
-## Getting Started
+Dokumentasi ini berisi panduan teknis dan operasional untuk setiap modul yang ada pada aplikasi SIKU. SIKU dibangun menggunakan **CodeIgniter 4** untuk memfasilitasi berbagai kebutuhan sekolah, seperti absensi, pendataan guru, siswa, orang tua, manajemen inventaris, dan lain sebagainya.
 
-Get started by **creating a new site**.
+## Hak Akses & Kredensial
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Aplikasi SIKU memiliki sistem autentikasi yang membatasi akses berdasarkan peran pengguna (Admin, Guru, Orang Tua, dsb.).
 
-### What you'll need
+Untuk mencoba dan masuk sebagai Administrator Super, Anda dapat menggunakan kredensial berikut:
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- **Username / Email:** `adminsuper@gmail.com`
+- **Password:** `superadmin`
 
-## Generate a new site
+Gunakan kredensial ini di halaman Login untuk mendapatkan akses penuh ke seluruh Modul Admin.
 
-Generate a new Docusaurus site using the **classic template**.
+## Struktur Modul
 
-The classic template will automatically be added to your project after you run the command:
+Dokumentasi ini dibagi berdasarkan level akses pengguna:
+- **Admin Modules**: Modul-modul yang dikelola oleh administrator sekolah (Data Pengguna, Data Guru, Siswa, Barang, Ruangan, Absensi, dll).
+- **Teacher Modules**: Modul yang diakses oleh guru, termasuk dashboard absensi dan laporan.
+- **Parent Modules**: Modul untuk orang tua siswa, untuk memonitor absensi dan laporan siswa.
+- **Public Scan**: Endpoint publik untuk melakukan scan QR Code absensi.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Silakan pilih menu di *sidebar* untuk melihat detail tiap modul.
