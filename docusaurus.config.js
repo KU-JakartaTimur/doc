@@ -40,6 +40,20 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      require.resolve('@cmfcmf/docusaurus-search-local'),
+      {
+        // Plugin tidak menyediakan stemmer Bahasa Indonesia; pakai 'en' agar
+        // pencarian keyword (termasuk teks ID) tetap jalan tanpa error build.
+        language: ['en'],
+        indexBlog: true,
+        indexDocs: true,
+        indexPages: false,
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
