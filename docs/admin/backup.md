@@ -1,19 +1,23 @@
-# Backup & Restore
+# Backup & Restore Data
 
-Modul Backup (`Backup.php`) digunakan untuk mengunduh salinan *database* sekolah serta arsip foto QR Code secara berkala demi keamanan data.
+Modul Backup & Restore (`Backup.php`) menyediakan sarana pencadangan dan pemulihan berkala untuk basis data MySQL serta aset arsip foto/capture demi menjamin keamanan data lembaga sekolah.
 
 ![Backup & Restore](/img/screenshots/backup-restore-1.9.10.png)
 
-## Panel Database
+---
 
-- **Backup Database**: Klik tombol **DOWNLOAD BACKUP** untuk mengunduh file SQL dump dari seluruh data aplikasi (siswa, guru, absensi, inventaris, pengaturan, dll).
-- **Restore Database**: Pilih file SQL hasil backup melalui tombol **Browse...** lalu klik **RESTORE BACKUP**. Peringatan: tindakan ini akan menimpa database saat ini.
+## 1. Cadangan Basis Data (Database MySQL)
 
-## Panel Foto (QR Code)
+- **Download Backup SQL**: Menghasilkan dump SQL terkompresi dari seluruh skema dan baris data (data master siswa, guru, akun, log presensi, audit log, dan histori perizinan).
+- **Restore Database**: Mengunggah berkas SQL hasil backup sebelumnya untuk memulihkan keadaan basis data secara instan.
 
-- **Backup Foto**: Mengunduh ZIP berisi semua foto/QR Code yang tersimpan di server.
-- **Restore Foto**: Memulihkan kumpulan foto/QR Code dari file arsip yang diunggah.
-
-:::warning
-Lakukan backup secara berkala dan simpan di lokasi yang aman. Restore akan menimpa data yang ada saat ini.
+:::caution Perhatian Restore Database
+Operasi *Restore* akan menggantikan seluruh tabel dan data yang sedang aktif saat ini. Pastikan Anda telah membuat salinan cadangan terkini sebelum menjalankan proses pemulihan.
 :::
+
+---
+
+## 2. Cadangan Berkas Foto & Capture
+
+- **Backup Foto (ZIP)**: Mengunduh arsip ZIP yang memuat seluruh foto profil, QR Code siswa/guru, serta foto tangkapan wajah dari modul Camera Capture.
+- **Restore Foto**: Mengekstrak kembali berkas arsip foto ke direktori penyimpanan server (`writable/uploads/` dan `writable/faces/`).

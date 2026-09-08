@@ -1,9 +1,13 @@
-# Data Pengguna
+# Data Pengguna (Shield)
 
-Modul Data Pengguna (`DataPengguna.php`) menangani manajemen autentikasi dan otorisasi menggunakan CodeIgniter Shield.
+Modul Data Pengguna (`DataPengguna.php`) terintegrasi langsung dengan mesin keamanan dan otentikasi **CodeIgniter Shield**.
 
-Di sini admin dapat:
-- Menambah pengguna baru
-- Mengubah peran pengguna (role)
-- Mereset password
-- Menonaktifkan akun
+Modul ini bekerja berdampingan dengan [Data Petugas](./data-petugas.md) untuk mengatur tabel `users`, `auth_identities`, dan `auth_groups_users`.
+
+---
+
+## Kemampuan Autentikasi Shield di SIKU
+
+- **Session-Based & Form Protection**: Perlindungan login dengan proteksi serangan brute force (*throttling*) bawaan Shield.
+- **Group & Permission Filters**: Setiap rute aplikasi di `Config/Routes.php` dilindungi filter peran (`filter => 'permission:...'`), memastikan pengguna hanya dapat mengakses fitur yang menjadi haknya.
+- **Isolasi Role**: Pemisahan tegas dashboard antara Superadmin, Admin, Guru/Wali Kelas, Orang Tua, Alumni, dan Petugas Scanner.

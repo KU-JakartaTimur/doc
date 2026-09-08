@@ -1,41 +1,40 @@
-# Website
+# Dokumentasi SIKU - Sistem Informasi Sekolah Khoiru Ummah
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Situs web dokumentasi resmi aplikasi **SIKU (Sistem Informasi dan Presensi Multi-Metode Sekolah Khoiru Ummah)** yang dibangun menggunakan [Docusaurus](https://docusaurus.io/).
 
-## Installation
+---
 
-```bash
-yarn
-```
+## 🚀 Fitur Dokumentasi
 
-## Local Development
+- **Panduan Teknis Lengkap**: Langkah instalasi, database migration, seeding, environment `.env`, konfigurasi Nginx production, dan Docker setup.
+- **Modul Presensi 3-in-1**: Dokumentasi pemindaian QR Code, integrasi RFID card USB reader, dan deteksi wajah (Face Recognition) serta Audio Announcer Text-To-Speech (TTS).
+- **Notifikasi WhatsApp**: Panduan konfigurasi 5 gateway WhatsApp (Fonnte, OpenWA, ApiMe, Evolution API, wuzapi) beserta mode rotasi otomatis (*Auto*).
+- **Progressive Web App (PWA)**: Panduan instalasi aplikasi native standalone di mobile dan desktop serta generator ikon via CLI (`php spark pwa:icons`).
+- **7 Role-Based Dashboard**: Panduan operasional untuk Superadmin, Admin, Kepala Sekolah, Wali Kelas, Orang Tua, Alumni, dan Petugas Scanner.
+- **Pencarian Lokal**: Fitur pencarian instan luring berbasis `@cmfcmf/docusaurus-search-local`.
 
-```bash
-yarn start
-```
+---
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## 💻 Menjalankan Dokumentasi Secara Lokal
 
-## Build
-
-```bash
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
+### Instalasi Dependensi
 
 ```bash
-USE_SSH=true yarn deploy
+npm install
 ```
 
-Not using SSH:
+### Menjalankan Server Development
 
 ```bash
-GIT_USER=<Your GitHub username> yarn deploy
+npm run start
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Server lokal akan berjalan di `http://localhost:3000`.
+
+### Membangun Berkas Statis Produksi
+
+```bash
+npm run build
+```
+
+Berkas keluaran statis HTML/CSS/JS akan dihasilkan di dalam direktori `build/` dan siap dideploy ke GitHub Pages, Vercel, Netlify, atau web server statis lainnya.

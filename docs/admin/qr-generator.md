@@ -1,26 +1,28 @@
-# QR Generator
+# QR Code Generator & Cetak Kartu
 
-Modul QR Generator (`GenerateQR.php` / `QRGenerator.php`) menyediakan alat untuk mencetak masal kartu identitas yang memuat QR Code (untuk siswa, guru, maupun petugas) yang akan digunakan saat proses absensi digital (scanning).
+Modul QR Generator (`QRGenerator.php` / `GenerateQR.php`) memfasilitasi pembuatan kode QR beresolusi tinggi dan pencetakan kartu presensi fisik bagi seluruh siswa dan guru.
 
 ![Generate QR Code](/img/screenshots/generate-qr-1.9.10.png)
 
-## Generate QR — Data Siswa
+---
 
-- Menampilkan total siswa yang terdata.
-- **GENERATE ALL**: Membuat QR Code untuk seluruh siswa sekaligus.
-- **DOWNLOAD ALL**: Mengunduh kumpulan QR Code siswa dalam bentuk arsip.
+## Kemampuan Generator
 
-## Generate QR — Data Guru
+SIKU menggunakan pustaka **Endroid QR Code** untuk menghasilkan grafis barcode dua dimensi yang tajam dan mudah dibaca oleh sensor kamera maupun scanner optik:
 
-- Menampilkan total guru yang terdata.
-- **GENERATE ALL** dan **DOWNLOAD ALL** untuk seluruh guru.
+- **Kode Unik Kriptografis**: Setiap QR Code memuat string unik acak yang terasosiasi ke NIS siswa atau NUPTK guru, mencegah pemalsuan kode absensi.
+- **Generate Massal (Bulk Generate)**: Tombol **GENERATE ALL** membuat berkas gambar QR Code seluruh siswa atau guru dalam hitungan detik.
+- **Generate per Rombel / Kelas**: Pembuatan QR khusus siswa di rombel kelas terpilih.
 
-## Generate per Kelas
+---
 
-- Pilih kelas dari dropdown.
-- **GENERATE PER KELAS**: Membuat QR Code untuk seluruh siswa pada kelas yang dipilih.
-- **DOWNLOAD PER KELAS**: Mengunduh kumpulan QR Code kelas terpilih.
+## Cetak Kartu Presensi Siap Print (Print-Ready)
 
-:::tip
-File hasil generate QR Code tersimpan di folder `public/uploads/`. Pastikan koneksi server tetap stabil saat melakukan generate untuk jumlah data besar.
-:::
+SIKU menyediakan fitur cetak kartu terintegrasi:
+
+1. **Layout Grid 4-Kolom Siap Cetak**:
+   - Menu cetak kartu otomatis merapikan kartu ke dalam tata letak kisi 4 kolom dengan garis batas potong rapi, siap dicetak langsung di kertas A4 atau kertas foto melalui dialog cetak browser (`Ctrl + P`).
+2. **Cetak Kartu Satuan (Single Print)**:
+   - Jika ada kartu siswa yang hilang atau rusak, kartu dapat dicetak ulang secara individual tanpa harus mencetak satu kelas penuh.
+3. **Unduh Arsip ZIP**:
+   - Tersedia tombol **DOWNLOAD ALL** atau **DOWNLOAD PER KELAS** untuk mengunduh seluruh file gambar QR Code dalam arsip terkompresi ZIP.

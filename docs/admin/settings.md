@@ -1,18 +1,29 @@
-# Pengaturan
+# Pengaturan Aplikasi
 
-Modul Pengaturan (`GeneralSettings.php` & `SettingsSideBar.php`) mengatur konfigurasi global aplikasi seperti identitas sekolah, tahun ajaran, copyright, dan logo, serta manajemen menu navigasi dinamis berbasis database (*Dynamic Sidebar*).
+Modul Pengaturan (`GeneralSettings.php` & `SettingsSideBar.php`) mengatur identitas kelembagaan sekolah, parameter jam kerja presensi, serta menu navigasi aplikasi.
 
-![Pengaturan Utama](/img/screenshots/pengaturan-1.9.10.png)
+![Pengaturan Utama SIKU](/img/screenshots/pengaturan-1.9.10.png)
 
-## Pengaturan Utama
+---
 
-- **Nama Sekolah**: Identitas sekolah yang akan tampil di header dan laporan (contoh: "SMK 1 Indonesia").
-- **Tahun Ajaran**: Periode tahun ajaran berjalan (contoh: 2024/2025).
-- **Copyright**: Teks hak cipta yang ditampilkan pada footer aplikasi.
-- **Logo**: Unggah logo sekolah (format `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`) dengan tombol **GANTI**.
+## 1. Identitas Sekolah
 
-Klik **SIMPAN** untuk menerapkan perubahan.
+- **Nama Sekolah**: Nama resmi lembaga sekolah (contoh: *"Khoiru Ummah"*). Digunakan pada judul situs, kartu presensi, cetak QR, dan kover laporan PDF.
+- **Tahun Ajaran**: Periode kalender pendidikan aktif (contoh: *"2025/2026"*).
+- **Copyright Footer**: Teks hak cipta yang muncul di bagian bawah aplikasi.
+- **Logo Sekolah**: Berkas logo berformat PNG, JPG, atau SVG. Logo yang diunggah otomatis dapat di-generate menjadi ikon PWA menggunakan perintah CLI `php spark pwa:icons`.
 
-## Pengaturan Lainnya
+---
 
-Selain pengaturan utama, sistem juga menyediakan konfigurasi jam masuk sekolah, toleransi keterlambatan, serta pengelolaan menu sidebar dinamis yang dapat diatur per peran pengguna.
+## 2. Parameter Waktu Presensi & Toleransi
+
+Admin dapat mengatur batas-batas waktu operasional kehadiran:
+- **Jam Masuk Standar**: Batas waktu kehadiran tepat waktu (misal `07:00:00`).
+- **Toleransi Keterlambatan**: Rentang menit kelonggaran sebelum siswa/guru mulai dikenai poin keterlambatan.
+- **Jam Kepulangan Standar**: Waktu resmi kepulangan sekolah untuk validasi scan keluar.
+
+---
+
+## 3. Dynamic Sidebar (Menu Dinamis)
+
+Melalui modul `SettingsSideBar.php`, urutan menu, visibilitas ikon, dan pengelompokan menu pada bilah navigasi kiri dapat diubah secara fleksibel berbasis basis data sesuai kebutuhan institusi.

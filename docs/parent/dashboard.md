@@ -1,17 +1,23 @@
-# Dashboard Orang Tua
+# Dashboard Orang Tua / Wali Murid
 
-Halaman Dashboard Orang Tua (`Dashboard.php`) menampilkan profil anak/siswa yang terhubung dengan akun ini. Orang tua dapat melihat ringkasan kehadiran anak dan jadwal sekolah harian.
+Modul Dashboard Orang Tua (`Parent/Dashboard.php`) adalah portal mandiri bagi para orang tua murid untuk memantau status kehadiran, riwayat kedatangan, serta kepulangan putra-putrinya di sekolah.
 
-## Notifikasi WhatsApp
+---
 
-Setiap kali anak melakukan scan QR (masuk maupun pulang), sistem mengirimkan **notifikasi WhatsApp** otomatis kepada orang tua. Hal ini memberikan kepastian real-time kepada wali murid mengenai keberadaan anak di sekolah.
+## Fitur-Fitur Utama
+
+### 1. Kartu Profil Siswa (Putra/Putri)
+Menampilkan identitas siswa yang terhubung dengan akun orang tua:
+- Nama Lengkap Siswa
+- Nomor Induk Siswa (NIS)
+- Kelas dan Jurusan
+- Nama Wali Kelas dan kontak sekolah
+
+### 2. Status Kehadiran Hari Berjalan
+- Menampilkan waktu persis jam kedatangan (*scan masuk*) dan jam kepulangan (*scan pulang*).
+- Menampilkan status kehadiran (Hadir Tepat Waktu, Terlambat, Sakit, atau Izin).
+
+### 3. Notifikasi WhatsApp Otomatis
+Selain memantau melalui web, sistem secara otomatis mengirimkan pesan konfirmasi kehadiran langsung ke nomor WhatsApp orang tua ketika anak melakukan pemindaian kartu di gerbang sekolah:
 
 ![Notifikasi WhatsApp Absensi](/img/screenshots/notif-wa.png)
-
-Contoh isi notifikasi:
-- "Siswa Ikhsan dengan NIS 1234567890 sudah absen masuk pada tanggal 2025-05-24 jam 11:26:04"
-- "Siswa Ikhsan dengan NIS 1234567890 sudah absen pulang pada tanggal 2025-05-24 jam 11:30:33"
-
-:::tip
-Pastikan nomor WhatsApp orang tua telah terdaftar pada modul **Data Orang Tua** agar notifikasi dapat diterima dengan benar.
-:::

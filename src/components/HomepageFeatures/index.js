@@ -4,32 +4,32 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Presensi 3-in-1 & Audio TTS',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Mendukung QR Code Scanner, tap kartu RFID via USB reader, serta Face Recognition & Camera Capture.
+        Dilengkapi pengumuman suara otomatis (Edge-TTS API & browser Web Speech API) saat scan berhasil.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: '7 Role-Based Multi-Dashboard',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Dibangun di atas CodeIgniter 4 & Shield dengan 7 hak akses terisolasi: Superadmin, Admin, Kepala Sekolah,
+        Guru/Wali Kelas, Orang Tua, Alumni, dan Petugas Scanner Gerbang.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Notifikasi WA & PWA Standalone',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Integrasi notifikasi instan via 5 Gateway WhatsApp (Fonnte, OpenWA, ApiMe, Evolution API, wuzapi) dengan mode acak auto-rotasi,
+        serta Progressive Web App (PWA) yang dapat dipasang di Android, iOS, dan Desktop.
       </>
     ),
   },

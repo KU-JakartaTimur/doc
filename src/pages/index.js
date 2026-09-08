@@ -16,11 +16,25 @@ function HomepageHeader() {
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
+        <p style={{maxWidth: '780px', margin: '0 auto 1.5rem', opacity: 0.9}}>
+          Solusi otomasi absensi dan manajemen sekolah terpadu dengan Presensi 3-in-1 (QR, RFID, Face Scan),
+          pengumuman suara otomatis (TTS), notifikasi WhatsApp multi-provider, dan 7 peran pengguna CodeIgniter Shield.
+        </p>
+        <div className={styles.buttons} style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Mulai Eksplorasi 🚀
+          </Link>
+          <Link
+            className="button button--outline button--secondary button--lg"
+            to="/docs/guide/installation">
+            Panduan Instalasi ⚙️
+          </Link>
+          <Link
+            className="button button--secondary button--lg"
+            href="https://github.com/KU-JakartaTimur/siku">
+            GitHub SIKU 💻
           </Link>
         </div>
       </div>
@@ -32,8 +46,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={siteConfig.title}
+      description="Dokumentasi Teknis dan Panduan Operasional Sistem Informasi Sekolah Khoiru Ummah (SIKU)">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

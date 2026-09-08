@@ -1,36 +1,59 @@
-# Scan QR Absensi
+---
+sidebar_position: 1
+---
 
-Endpoint Publik (`Scan.php`) digunakan sebagai *kiosk* atau titik pemindaian (scanner) mandiri di pintu masuk sekolah. Modul ini dioperasikan menggunakan kamera web atau scanner hardware.
+# Presensi Multi-Metode (Scanner)
 
-![Halaman Scanner QR](/img/screenshots/new-scanner-1.9.10.png)
+Modul Scanner (`Scan.php`) merupakan antarmuka titik presensi (*kiosk*) yang ditempatkan di gerbang sekolah atau ruang presensi. Halaman ini dirancang untuk operasional presensi yang cepat, interaktif, dan akurat.
 
-## Tata Letak Halaman
+![Halaman Scanner Presensi Multi-Metode](/img/screenshots/new-scanner-1.9.10.png)
 
-Halaman scanner terbagi menjadi 3 panel utama:
+---
 
-- **Tips (kiri)**: Panduan singkat penggunaan kamera dan posisi QR Code agar terbaca dengan baik.
-- **Area Scan (tengah)**: Berisi tombol **ABSEN MASUK / ABSEN PULANG**, toggle **Gunakan Kamera (Scan QR)**, pilihan kamera (Video device), serta preview hasil scan.
-- **Penggunaan (kanan)**: Penjelasan langkah-langkah penggunaan, klik tombol **Absen Masuk / Absen Pulang** untuk mengubah waktu absensi, dan tombol **Dashboard** untuk melihat data absensi.
+## 3 Pilihan Metode Presensi (3-in-1)
 
-Halaman scanner juga mendukung perangkat **NFC Reader (rfid)** sebagai alternatif scan QR.
+SIKU mendukung tiga metode verifikasi kehadiran yang dapat digunakan secara fleksibel:
 
-## Status Hasil Scan
+1. **Pemindaian QR Code (Webcam / Kamera)**:
+   Siswa atau guru menunjukkan kartu absensi QR Code ke arah kamera. Library pemindai berbasis web (*ZXing*) langsung membaca kode secara real-time.
+2. **Kartu RFID / NFC (USB RFID Reader)**:
+   Tanpa menyentuh kamera, siswa cukup men-tap kartu pelajar berbasis RFID ke USB Reader yang terpasang pada komputer/laptop scanner. Nomor seri kartu otomatis tertangkap ke sistem.
+3. **Face Recognition & Camera Capture**:
+   Sistem mendukung identifikasi berbasis pengenalan wajah melalui Face Recognition API. Kamera juga secara otomatis memotret wajah sebagai bukti fisik presensi digital yang tersimpan di server.
 
-Setelah QR Code anak/guru/petugas terbaca, sistem akan menampilkan status berikut:
+---
+
+## Fitur Interaktif Saat Presensi
+
+### 🔊 Audio Announcer (Text-To-Speech)
+Setiap kali presensi berhasil diverifikasi, sistem akan memutar pengumuman suara yang menyebutkan nama orang yang hadir, ucapan salam (Selamat pagi / siang), dan konfirmasi status (misalnya *"Presensi Masuk Berhasil"*). Sistem menggunakan **Edge-TTS API** dengan cadangan otomatis ke **Web Speech API** browser jika server suara sedang tidak tersambung.
+
+### 💬 Notifikasi WhatsApp Instan
+Konfirmasi presensi langsung dikirimkan ke nomor WhatsApp siswa atau orang tua dalam hitungan detik.
+
+### 🚫 Proteksi Hari Libur Otomatis
+Jika tanggal pemindaian bertepatan dengan hari libur yang terdaftar pada modul **Hari Libur**, sistem secara otomatis menolak presensi dan menampilkan peringatan:
+> *"Hari ini sistem presensi dinonaktifkan karena: [Alasan Libur]"*
+
+---
+
+## Status Hasil Pemindaian
 
 ![Beragam Status Hasil Scan](/img/screenshots/absen.jpg)
 
-- **Absen masuk berhasil**: Pemindaian masuk pertama kali pada hari berjalan tercatat.
-- **Anda sudah absen hari ini**: Mencegah duplikasi absen masuk.
-- **Absen pulang berhasil**: Pemindaian keluar tercatat sebagai jam pulang.
-- **Anda belum absen hari ini**: Saat menekan ABSEN PULANG tetapi belum tercatat absen masuk.
+Sistem menampilkan feedback visual yang jelas berdasarkan waktu dan kondisi absensi:
+- **Absen Masuk Berhasil**: Presensi kedatangan pertama di hari berjalan berhasil terekam (mencatat jam kedatangan dan menghitung toleransi menit keterlambatan).
+- **Anda Sudah Absen Hari Ini**: Mencegah pemindaian ganda (*double tapping*) untuk absen masuk.
+- **Absen Pulang Berhasil**: Presensi kepulangan tercatat sebagai jam keluar.
+- **Anda Belum Absen Masuk**: Ditampilkan jika menekan mode **Absen Pulang** padahal belum ada catatan kehadiran masuk di hari yang sama.
+- **Data Tidak Ditemukan**: QR Code atau nomor RFID tidak cocok dengan basis data siswa maupun guru sekolah.
 
-Setiap status menampilkan **Nama**, **NIS/NUPTK**, **Kelas**, **Jam masuk**, dan **Jam pulang** yang relevan.
+---
 
-## Alur Operasional
+## Tata Cara Pengoperasian Pos Presensi
 
-1. Operator memilih mode **Absen Masuk** atau **Absen Pulang**.
-2. Aktifkan toggle **Gunakan Kamera (Scan QR)** dan pilih kamera yang sesuai.
-3. Arahkan QR Code siswa/guru/petugas ke kamera.
-4. Sistem memvalidasi QR, mencatat waktu, dan mengirim notifikasi WhatsApp ke orang tua (untuk siswa).
-5. Seluruh hasil scan otomatis tersimpan ke database presensi sesuai jadwal dan toleransi keterlambatan yang diatur Admin.
+1. Buka browser pada alamat `http://localhost:8080/scan` (atau klik menu **Scan Presensi**).
+2. Pilih mode presensi di bagian atas: **ABSEN MASUK** atau **ABSEN PULANG**.
+3. Aktifkan toggle **Gunakan Kamera (Scan QR)** dan tentukan perangkat webcam yang digunakan pada dropdown *Video Device*.
+4. Siswa/guru mengarahkan QR Code atau men-tap kartu RFID ke scanner.
+5. Indikator suara, visual kartu kehadiran, dan notifikasi WhatsApp akan dipicu secara simultan.

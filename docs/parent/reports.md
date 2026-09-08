@@ -1,13 +1,20 @@
-# Laporan Kehadiran Siswa
+# Laporan Presensi Putra/Putri
 
-Melalui modul Laporan (`Reports.php`), orang tua dapat memantau secara *real-time* waktu kedatangan (scan masuk) dan waktu kepulangan (scan keluar) anaknya di sekolah, serta melihat rekap bulanan kehadiran.
+Melalui modul Laporan (`Parent/Reports.php`), orang tua murid dapat memeriksa riwayat kehadiran anak secara komprehensif dari bulan ke bulan.
 
-## Sumber Data
+---
 
-Laporan ini dihasilkan dari hasil scan QR Code anak pada perangkat scanner yang dipasang di pintu masuk sekolah. Lihat juga modul [Public Scan](../scan/index.md) untuk memahami alur pemindaian.
+## Informasi yang Disajikan
 
-## Notifikasi Real-time
+1. **Ringkasan Bulanan**:
+   - Persentase tingkat kehadiran anak sepanjang bulan berjalan.
+   - Akumulasi hari Hadir, Sakit, Izin, dan Alfa.
+   - Riwayat catatan keterlambatan (jika ada).
 
-Selain melihat dashboard, orang tua juga menerima notifikasi WhatsApp setiap anak melakukan absen masuk/pulang.
+2. **Daftar Catatan Harian**:
+   - Tanggal kehadiran.
+   - Jam tepat scan masuk dan scan kepulangan.
+   - Keterangan khusus dari wali kelas.
 
-![Notifikasi WhatsApp Absensi](/img/screenshots/notif-wa.png)
+3. **Unduh Laporan Kehadiran**:
+   - Orang tua dapat mengunduh rekap presensi putra-putrinya sebagai arsip pribadi atau pelengkap administrasi beasiswa/keperluan lainnya.

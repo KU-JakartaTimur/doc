@@ -4,29 +4,60 @@ sidebar_position: 1
 
 # Pengenalan SIKU
 
-Selamat datang di Dokumentasi **SIKU (Sistem Informasi Sekolah Terpadu)**.
+Selamat datang di Dokumentasi Resmi **SIKU (Sistem Informasi dan Presensi Sekolah Khoiru Ummah)**.
 
-![Hero SIKU - Absensi Sekolah QR Code](/img/screenshots/hero.png)
+![Hero SIKU - Presensi & Sistem Informasi Sekolah](/img/screenshots/hero.png)
 
-Dokumentasi ini berisi panduan teknis dan operasional untuk setiap modul yang ada pada aplikasi SIKU. SIKU dibangun menggunakan **CodeIgniter 4** untuk memfasilitasi berbagai kebutuhan sekolah, seperti absensi berbasis QR Code, pendataan guru, siswa, orang tua, manajemen inventaris, dan lain sebagainya.
+Aplikasi Web **SIKU** adalah sistem terpadu yang dirancang untuk mengotomatisasi proses absensi serta pengelolaan data di lingkungan sekolah. Dibangun menggunakan framework **CodeIgniter 4** dan sistem keamanan **CodeIgniter Shield**, SIKU menyediakan platform yang andal, fleksibel, dan terukur untuk mempermudah pemantauan kehadiran siswa dan guru secara *real-time*.
 
-## Hak Akses & Kredensial
+---
 
-Aplikasi SIKU memiliki sistem autentikasi yang membatasi akses berdasarkan peran pengguna (Admin, Guru, Orang Tua, dsb.).
+## Fitur Utama
 
-Untuk mencoba dan masuk sebagai Administrator Super, Anda dapat menggunakan kredensial berikut:
+- **Presensi Multi-Metode (3-in-1)**: Pemindaian QR Code kamera, tap kartu RFID via USB reader, serta Face Recognition & Camera Capture bukti fisik presensi.
+- **Pengumuman Suara Otomatis (Audio TTS)**: Menyapa dan mengumumkan status presensi secara bersuara via Edge-TTS dan Web Speech API fallback.
+- **Notifikasi WhatsApp Real-time**: Mengirim konfirmasi kehadiran instan ke nomor WhatsApp siswa/orang tua/guru dengan dukungan 5 provider gateway dan mode rotasi otomatis (*Auto*).
+- **Progressive Web App (PWA)**: Dapat diinstal langsung di smartphone maupun desktop, berjalan dalam mode layar penuh (*standalone*), serta dilengkapi halaman offline informatif.
+- **Portal Perizinan Sakit/Izin Digital**: Pengajuan izin/sakit mandiri secara publik (`/izin`) dengan verifikasi dan persetujuan bertingkat oleh Admin dan Wali Kelas.
+- **Portal Cek Kehadiran Mandiri**: Cek kehadiran siswa secara mandiri tanpa harus login (`/cek-kehadiran`).
+- **Disiplin & Manajemen Waktu Kerja**: Poin keterlambatan otomatis, pembedaan status "Belum Scan" vs "Alfa", peringatan 3+ hari tidak hadir, serta kalender hari kerja & hari libur sekolah.
 
-- **Username / Email:** `adminsuper@gmail.com`
-- **Password:** `superadmin`
+---
 
-Gunakan kredensial ini di halaman Login untuk mendapatkan akses penuh ke seluruh Modul Admin.
+## 7 Hak Akses & Peran Pengguna (CodeIgniter Shield)
 
-## Struktur Modul
+Aplikasi mengimplementasikan pembagian hak akses pengguna berbasis grup (*role-based access control*):
 
-Dokumentasi ini dibagi berdasarkan level akses pengguna:
-- **Admin Modules**: Modul-modul yang dikelola oleh administrator sekolah (Data Pengguna, Data Guru, Siswa, Barang, Ruangan, Absensi, dll).
-- **Teacher Modules**: Modul yang diakses oleh guru, termasuk dashboard absensi dan laporan.
-- **Parent Modules**: Modul untuk orang tua siswa, untuk memonitor absensi dan laporan siswa.
-- **Public Scan**: Endpoint publik untuk melakukan scan QR Code absensi.
+| Hak Akses / Role | Peran Pengguna | Ringkasan Wewenang |
+| :--- | :--- | :--- |
+| `superadmin` | **Super Administrator** | Akses tanpa batas ke seluruh modul, pengaturan umum, hak akses petugas, audit trail, serta backup & restore. |
+| `admin` | **Staf Petugas / Tata Usaha** | Mengelola absensi harian, data master (siswa, guru, kelas, jurusan, orang tua, alumni), generate QR, dan laporan. |
+| `kepsek` | **Kepala Sekolah** | Memantau dashboard analitik sekolah dan mengunduh seluruh laporan absensi. |
+| `guru` | **Guru / Wali Kelas** | Dashboard khusus kelas yang diampu, live monitoring presensi siswa kelas, approval izin siswa kelas, dan unduh QR kelas. |
+| `orangtua` | **Orang Tua / Wali Murid** | Dashboard monitoring absensi harian dan riwayat kehadiran putra/putrinya secara langsung. |
+| `alumni` | **Alumni** | Portal khusus siswa yang telah lulus untuk melihat riwayat kehadiran dan arsip kelulusan. |
+| `scanner` | **Petugas Scanner Gerbang** | Antarmuka minimalis fokus pemindaian presensi di pos gerbang tanpa hak akses ke modul administratif. |
 
-Silakan pilih menu di *sidebar* untuk melihat detail tiap modul.
+---
+
+## Kredensial Bawaan Sistem
+
+Untuk memulai eksplorasi awal, sistem menyediakan akun default Super Administrator:
+
+- **Email**: `adminsuper@gmail.com`
+- **Username**: `superadmin`
+- **Password**: `superadmin`
+
+:::caution Keamanan Akun
+Pastikan Anda langsung memperbarui username, email, dan kata sandi akun `superadmin` setelah berhasil masuk pertama kali!
+:::
+
+---
+
+## Struktur Dokumentasi
+
+Dokumentasi ini disusun secara terstruktur agar mudah dipelajari:
+- **Panduan Teknis & Instalasi**: Petunjuk instalasi lokal, Docker, PWA, WhatsApp Gateway, TTS & Face API, dan Nginx.
+- **Presensi & Portal Publik**: Panduan modul scanner 3-in-1, form izin mandiri, dan portal cek kehadiran.
+- **Modul Superadmin & Admin**: Panduan komprehensif seluruh modul pengelolaan data master dan administrasi sekolah.
+- **Modul Peran Khusus**: Panduan penggunaan untuk Wali Kelas, Orang Tua, Alumni, dan Kepala Sekolah.
