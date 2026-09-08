@@ -1,19 +1,24 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+release:
+  label: Release
+  permalink: /release
+  description: Catatan pembaruan versi dan rilis fitur baru SIKU
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+fitur-baru:
+  label: Fitur Baru
+  permalink: /fitur-baru
+  description: Pengenalan fitur-fitur baru pada sistem SIKU
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+pwa:
+  label: PWA
+  permalink: /pwa
+  description: Pengembangan Progressive Web App SIKU
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+whatsapp:
+  label: WhatsApp API
+  permalink: /whatsapp
+  description: Integrasi notifikasi WhatsApp multi-provider
+
+arsitektur:
+  label: Arsitektur
+  permalink: /arsitektur
+  description: Arsitektur sistem, database, dan keamanan CodeIgniter 4 & Shield
